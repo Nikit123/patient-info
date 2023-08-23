@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import PatientTable from './PatientTable';
+import './App.css'
+import AgeSlider from './AgeSlider';
+import useFilter from './useFilter';
 
-function App() {
+const App = () => {
+  const [ageValue, setAgeValue] = useState([0, 100])
+  const { filteredData, loading, error } = useFilter(ageValue);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='Container'>
+      <AgeSlider
+        setAgeValue={setAgeValue}
+      />
+      <PatientTable
+        data={filteredData}
+        error={error}
+        loading={loading}
+      />
     </div>
   );
 }

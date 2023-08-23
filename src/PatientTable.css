@@ -1,0 +1,17 @@
+.table-container {
+    margin: 8px;
+    width: 850px;
+}
+
+.table-data-container {
+    max-height: 450px;
+    overflow: auto;
+}
+
+.table-headers {
+    font-weight: 600;
+}
+
+.table-footer {
+    margin-top: 8px;
+}
